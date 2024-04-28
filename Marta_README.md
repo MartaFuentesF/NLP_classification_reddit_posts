@@ -1,4 +1,8 @@
 ### Introduction
+
+Content note: This dataset contains real Subbredit posts, and some of the posts contain language that is not safe for work, crude, or offensive.
+
+
 For Project 3, the objective is to collect and analyze posts from two distinct subreddits. Subreddits are specialized forums on the popular website Reddit that cater to specific topics and interests.
 
 The focus will be on creating a classification model to discern the origin of a subreddit post between the following two subreddits:
