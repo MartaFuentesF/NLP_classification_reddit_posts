@@ -6,13 +6,13 @@ For Project 3, the objective is to collect and analyze posts from two distinct s
 
 The focus will be on creating a classification model to discern the origin of a subreddit post between the following two subreddits:
 
-**Subreddit 1: [r/AmItheAsshole]('https://www.reddit.com/r/AmItheAsshole/')**
+Subreddit 1: [r/AmItheAsshole]('https://www.reddit.com/r/AmItheAsshole/')
 
 Description: Serving as a platform for moral introspection, r/AmItheAsshole provides a space for individuals to seek feedback on contentious issues. Users present both sides of a dilemma and solicit opinions to ascertain whether their actions align with societal norms.
 
 Content note: This dataset contains real Subbredit posts, and some of the posts contain language that is not safe for work, crude, or offensive.
 
-**Subreddit 2: [r/AskLawyers]('https://www.reddit.com/r/AskLawyers/')**
+Subreddit 2: [r/AskLawyers]('https://www.reddit.com/r/AskLawyers/')
 
 Description: Offering legal guidance, r/AskLawyers encourages users to pose questions with the understanding that professional legal advice requires consultation with an attorney. Public posts and comments in this subreddit are not construed as forming an attorney-client relationship.
 
@@ -26,7 +26,8 @@ After collecting data from the Reddit API, duplicates were removed, resulting in
 
 ### Text Processing and Analysis
 
-Top words in each subreddit were identified using CountVectorizer. Additionally, a custom preprocessor was implemented to remove URLs, emojis, and special characters. The lemmatize-tokenize function was applied to further process the text data.
+The top words in each subreddit were identified using CountVectorizer. A custom preprocessor was also implemented to remove URLs, emojis, and special characters. The lemmatize-tokenize function was applied to further process the text data.
+
 ![Most Common Words in Posts (from both sources combined)](https://git.generalassemb.ly/martafuentes/project-3/blob/master/Images/bar_most_common_all.png?raw=true)
 
 ![Distribution of Post Lengths by Word Count for Each Source](https://git.generalassemb.ly/martafuentes/project-3/blob/master/Images/bar_post_len_by_word_al_aita.png?raw=true)
@@ -91,7 +92,8 @@ Both models performed well, with minor differences in specific metrics. The F1 s
 
 ![Roc and AUC for TfidVectorizer + LogisticRegression Model](https://git.generalassemb.ly/martafuentes/project-3/blob/master/Images/roc_auc_tvec_lr.png?raw=true)
 
-The AUC for the ROC curve was 0.99 for both models, indicating their ability to distinguish posts from the target source.
+Both models' AUC for the ROC curve was 0.99, indicating their effective ability to distinguish posts from the target source.
 
 In summary, powerful NLP tools like CountVectorizer and TfidVectorizer, used in conjunction with Pipelines and Gridsearch CV, can be used to make effective predictive and inferential models. Whether using CountVectorizer with MultinomialNB or TfidfVectorizer with LogisticRegression, the models demonstrated strong performance in predicting the source of Reddit posts.
 
+*citation:* Throughout my notebooks, I used Grammarly to help improve my technical writting.
