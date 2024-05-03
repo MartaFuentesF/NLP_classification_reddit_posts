@@ -2,31 +2,32 @@
 
 ### Introduction
 
-For Project 3, the objective is to collect and analyze posts from two distinct subreddits. Subreddits are specialized forums on the popular website Reddit that cater to specific topics and interests.
+This project's objective is to collect and analyze posts from two distinct subreddits. Subreddits are specialized forums on the popular website Reddit that cater to specific topics and interests.
 
 The focus will be on creating a classification model to discern the origin of a subreddit post between the following two subreddits:
 
+Content note: This dataset contains real Subbredit posts, and some of the posts contain language that can be crude or offensive.
+
 Subreddit 1: [r/AmItheAsshole]('https://www.reddit.com/r/AmItheAsshole/')
 
-Description: Serving as a platform for moral introspection, r/AmItheAsshole provides a space for individuals to seek feedback on contentious issues. Users present both sides of a dilemma and solicit opinions to ascertain whether their actions align with societal norms.
+Description (from the forum): r/AmItheAsshole is a platform for moral introspection. It allows individuals to seek feedback on contentious issues. Users present both sides of a dilemma and solicit opinions to ascertain whether their actions align with societal norms.
 
-Content note: This dataset contains real Subbredit posts, and some of the posts contain language that is not safe for work, crude, or offensive.
 
 Subreddit 2: [r/AskLawyers]('https://www.reddit.com/r/AskLawyers/')
 
-Description: Offering legal guidance, r/AskLawyers encourages users to pose questions with the understanding that professional legal advice requires consultation with an attorney. Public posts and comments in this subreddit are not construed as forming an attorney-client relationship.
+Description (from the forum): Offering legal guidance, r/AskLawyers encourages users to pose questions with the understanding that professional legal advice requires consultation with an attorney. Public posts and comments in this subreddit are not construed as forming an attorney-client relationship.
 
 
-The selection of these two subreddits stems from their shared purpose of providing a venue for individuals to seek input on personal matters. While one focuses on ethical considerations and societal expectations, the other centers on legal principles and potential courses of action. This juxtaposition between moral inquiry and legal inquiry presents an intriguing avenue for exploration, highlighting the intersection of public opinion and formal legal frameworks.
+The selection of these two subreddits stems from their shared purpose of providing a venue for individuals to seek input on personal matters. While one focuses on ethical considerations and societal expectations, the other centers on legal principles and potential courses of action. While one focuses on ethical considerations and societal expectations, the other centers on legal principles and possible consequences. In both cases, people want advice on a course of action.
 
 
 ### Data Preparation
 
-After collecting data from the Reddit API, duplicates were removed, resulting in a dataset with 2149 entries. Some posts had missing content, which was replaced with the post title as a common practice in discussion forums.
+After collecting data from the Reddit API, duplicates were removed, resulting in a dataset with 2149 entries. There are three columns: title, post, and source. The data is unbalanced, as ~72% of the posts originated from AITA. This was addressed by stratifying the target variable. Missing data from the 'post' column was imputed using the post title; it is common practice in discussion forums to use the title line for a question.
 
 ### Text Processing and Analysis
 
-The top words in each subreddit were identified using CountVectorizer. A custom preprocessor was also implemented to remove URLs, emojis, and special characters. The lemmatize-tokenize function was applied to further process the text data.
+The top words in each subreddit were identified using CountVectorizer. A custom preprocessor was also implemented to remove URLs, emojis, and special characters. A lemmatize-tokenize function was applied to further process the text data.
 
 ![Most Common Words in Posts (from both sources combined)](https://git.generalassemb.ly/martafuentes/project-3/blob/master/Images/bar_most_common_all.png?raw=true)
 
@@ -37,14 +38,14 @@ The top words in each subreddit were identified using CountVectorizer. A custom 
 
 ### Model Building and Evaluation
 
-Two classification models were developed using different techniques. The first model utilized CountVectorizer and MultinomialNB, while the second model employed TfidfVectorizer and LogisticRegression. GridSearchCV was used to optimize model parameters. The tables below summarize the accuracy metrics and parameters for the two different models.
+Two classification models were developed using different techniques. The first model used CountVectorizer and MultinomialNB, while the second model employed TfidfVectorizer and LogisticRegression. GridSearchCV was used to optimize model parameters. The tables below summarize the accuracy metrics and parameters for the two different models.
 
 
 
-| Model                              | Baseline Accuracy(Source 1: AmItheAssole) | Baseline Accuracy (Source 0: AskLawyers) | Best Accuracy Score (CV) | Best Accuracy Score (Training) | Best Accuracy Score (Testing) | Best Parameters Found                             |
+| Model                              | Baseline Accuracy (Source 1: AmItheAssole) | Baseline Accuracy (Source 0: AskLawyers) | Best Accuracy Score (CV) | Best Accuracy Score (Training) | Best Accuracy Score (Testing) | Best Parameters Found                             |
 |------------------------------------|------------------------------------|------------------------------------|--------------------------|--------------------------------|-------------------------------|--------------------------------------------------|
-| CountVectorizer + MultinomialNB    | 0.719944                           | 0.280056                           | 0.964564                 | 0.979847                       | 0.950704                      | max_df': 0.95, 'max_features': 5000, 'min_df': 4, 'ngram_range': (1, 1) |
-| TfidVectorizer + LinearRegression | 0.719944                           | 0.280056                           | 0.934669                 | 0.964559                       | 0.947887                      | 'max_df': 0.95, 'max_features': 2000, 'min_df': 4, 'ngram_range': (1, 1) |
+| CountVectorizer + MultinomialNB    | 0.719944                           | 0.280056                           | 0.964564                 | 0.979847                       | 0.950704                      | max_df: 0.95, max_features: 5000, min_df: 4, 'ngram_range': (1, 1) |
+| TfidVectorizer + LinearRegression | 0.719944                           | 0.280056                           | 0.934669                 | 0.964559                       | 0.947887                      | max_df: 0.95, max_features: 2000, min_df: 4, 'ngram_range': (1, 1) |
 
 
 ### Confusion Matrix for CountVectorizer + MultinomialNB
@@ -56,7 +57,7 @@ Two classification models were developed using different techniques. The first m
 
 ### Logistic Regression as an Inferential Model
 
-In addition to making predictions in a classification scenario, Logistic Regression models can give us inferential insights by using the coefficients associated with the model. In this case, positive coefficients suggest words associated with one class, while negative coefficients suggest words related to the other. Below are the words and coefficients for the most influential words in determining if a post came from AskLawyers.
+In addition to making predictions in a classification scenario, Logistic Regression models can give us inferential insights by using the coefficients associated with the features. These are determined by the model after searching for the best hyperparameters. In this case, positive coefficients suggest words associated with one class, while negative coefficients suggest words related to the other. Below are the words and coefficients for the most influential words in determining if a post came from AskLawyers.
 
 | Coefficient | Word     |
 |-------------|----------|
@@ -76,6 +77,8 @@ In addition to making predictions in a classification scenario, Logistic Regress
 
 
 ### Comparison and Conclusion
+
+In addition to accuracy, both models were evaluated using the results of a confusion matrix. Accuracy is not as informative of a metric as the ones below.
 
 | Metric          | CountVectorizer + MultinomialNB | TfidVectorizer + LogisticRegression |
 |-----------------|---------------------------------|-------------------------------------|
