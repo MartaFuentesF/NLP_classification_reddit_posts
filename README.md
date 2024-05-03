@@ -57,7 +57,7 @@ Two classification models were developed using different techniques. The first m
 
 ### Logistic Regression as an Inferential Model
 
-In addition to making predictions in a classification scenario, Logistic Regression models can give us inferential insights by using the coefficients associated with the features. These are determined by the model after searching for the best hyperparameters. In this case, positive coefficients suggest words associated with one class, while negative coefficients suggest words related to the other. Below are the words and coefficients for the most influential words in determining if a post came from AskLawyers.
+In addition to making predictions in a classification scenario, Logistic Regression models can give us inferential insights by using the coefficients associated with the features. These are determined by the model after searching for the best hyperparameters. In this case, positive coefficients suggest words associated with one class, while negative coefficients suggest words related to the other. Below are top ten influential  words and their coefficients for posts in AskLawyers.
 
 | Coefficient | Word     |
 |-------------|----------|
@@ -99,4 +99,4 @@ Both models' AUC for the ROC curve was 0.99, indicating their effective ability 
 
 In summary, powerful NLP tools like CountVectorizer and TfidVectorizer, used in conjunction with Pipelines and Gridsearch CV, can be used to make effective predictive and inferential models. Whether using CountVectorizer with MultinomialNB or TfidfVectorizer with LogisticRegression, the models demonstrated strong performance in predicting the source of Reddit posts.
 
-*citation:* Throughout my notebooks, I used Grammarly to help improve my technical writting.
+*citation:* Throughout my notebooks, I used Grammarly to help improve my technical writing.
