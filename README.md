@@ -36,7 +36,7 @@ Top words in each subreddit were identified using CountVectorizer. Additionally,
 
 ### Model Building and Evaluation
 
-Two classification models were developed using different techniques. The first model utilized CountVectorizer and MultinomialNB, while the second model employed TfidfVectorizer and LogisticRegression. GridSearchCV was used to optimize model parameters. The tables bellow summarize the metrics for the two different models.
+Two classification models were developed using different techniques. The first model utilized CountVectorizer and MultinomialNB, while the second model employed TfidfVectorizer and LogisticRegression. GridSearchCV was used to optimize model parameters. The tables below summarize the accuracy metrics and parameters for the two different models.
 
 
 
@@ -53,16 +53,10 @@ Two classification models were developed using different techniques. The first m
 ### Confusion Matrix for TfidVectorizer + LogisticRegression
 ![Confusion Matrix for TfidVectorizer + LogisticRegression](https://git.generalassemb.ly/martafuentes/project-3/blob/master/Images/conf_matrix_tvec_lr.png?raw=true)
 
-
-
-| Metric          | CountVectorizer + MultinomialNB | TfidVectorizer + LogisticRegression |
-|-----------------|---------------------------------|-------------------------------------|
-| Specificity     | 0.889                           | 0.834                               |
-| Recall          | 0.975                           | 0.992                               |
-| Precision       | 0.958                           | 0.939                               |
-| F1 Score        | 0.966                           | 0.965                               |
+### Logistic Regression as an Inferential Model
 
 In addition to making predictions in a classification scenario, Logistic Regression models can give us inferential insights by using the coefficients associated with the model. In this case, positive coefficients suggest words associated with one class, while negative coefficients suggest words related to the other. Below are the words and coefficients for the most influential words in determining if a post came from AskLawyers.
+
 | Coefficient | Word     |
 |-------------|----------|
 | -2.248      | court    |
@@ -76,7 +70,18 @@ In addition to making predictions in a classification scenario, Logistic Regress
 | -1.351      | any      |
 | -1.323      | What     |
 
+
+
+
+
 ### Comparison and Conclusion
+
+| Metric          | CountVectorizer + MultinomialNB | TfidVectorizer + LogisticRegression |
+|-----------------|---------------------------------|-------------------------------------|
+| Specificity     | 0.889                           | 0.834                               |
+| Recall          | 0.975                           | 0.992                               |
+| Precision       | 0.958                           | 0.939                               |
+| F1 Score        | 0.966                           | 0.965                               |
 
 Both models performed well, with minor differences in specific metrics. The F1 scores were nearly identical, indicating high precision and recall. Additionally, both models achieved high accuracy scores, suggesting their effectiveness in classifying text data.
 
