@@ -18,7 +18,7 @@ Subreddit 2: [r/AskLawyers]('https://www.reddit.com/r/AskLawyers/')
 Description (from the forum): Offering legal guidance, r/AskLawyers encourages users to pose questions with the understanding that professional legal advice requires consultation with an attorney. Public posts and comments in this subreddit are not construed as forming an attorney-client relationship.
 
 
-The selection of these two subreddits stems from their shared purpose of providing a venue for individuals to seek input on personal matters. While one focuses on ethical considerations and societal expectations, the other centers on legal principles and potential courses of action. While one focuses on ethical considerations and societal expectations, the other centers on legal principles and possible consequences. In both cases, people want advice on a course of action.
+The selection of these two subreddits stems from their shared purpose of providing a venue for individuals to seek input on personal matters. While one focuses on ethical considerations and societal expectations, the other centers on legal principles and possible consequences. In both cases, people want advice on a course of action.
 
 
 ### Data Preparation
