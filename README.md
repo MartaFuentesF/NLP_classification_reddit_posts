@@ -50,7 +50,7 @@ Comparison and Conclusion
 Both models performed well, with minor differences in specific metrics. The F1 scores were nearly identical, indicating high precision and recall. Additionally, both models achieved high accuracy scores, suggesting their effectiveness in classifying text data.
 ![ROC and AUC for CVectorizer + MultinomialNB Model](https://git.generalassemb.ly/martafuentes/project-3/blob/master/Images/roc_auc_cvec_lr.png?raw=true)
 
-![
+![Roc and AUC for C
 The AUC for the ROC curve was 0.99 for both models, indicating their ability to distinguish posts from the target source.
 
 In conclusion, whether using CountVectorizer with MultinomialNB or TfidfVectorizer with LogisticRegression, the models demonstrated strong performance in predicting the source of Reddit posts.
