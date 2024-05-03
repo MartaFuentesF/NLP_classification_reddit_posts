@@ -76,7 +76,7 @@ In addition to making predictions in a classification scenario, Logistic Regress
 
 
 
-### Comparison and Conclusion
+### Comparison 
 
 In addition to accuracy, both models were evaluated using the results of a confusion matrix. Accuracy is not as informative of a metric as the ones below.
 
@@ -97,6 +97,11 @@ Both models performed well, with minor differences in specific metrics. The F1 s
 
 Both models' AUC for the ROC curve was 0.99, indicating their effective ability to distinguish posts from the target source.
 
-In summary, powerful NLP tools like CountVectorizer and TfidVectorizer, used in conjunction with Pipelines and Gridsearch CV, can be used to make effective predictive and inferential models. Whether using CountVectorizer with MultinomialNB or TfidfVectorizer with LogisticRegression, the models demonstrated strong performance in predicting the source of Reddit posts.
+### Next Steps
+As I delve deeper into NLP modeling, I aim to conduct a thorough analysis of how the custom processor I implemented influenced the model outcomes. Furthermore, I plan to expand the scope of my investigation by testing the model on subreddits that exhibit closer thematic ties. In addition to this, I aspire to explore alternative modeling techniques, including bootstrapping, random forests, and boosting, to gain a comprehensive understanding of their effectiveness in classifying Reddit posts. These explorations will not only enhance the robustness of the model but also contribute to a more nuanced understanding of NLP methodologies and their applicability in real-world scenarios.
+
+
+### Summarizing
+Powerful NLP tools like CountVectorizer and TfidVectorizer, used in conjunction with Pipelines and Gridsearch CV, can be used to make effective predictive and inferential models. Whether using CountVectorizer with MultinomialNB or TfidfVectorizer with LogisticRegression, the models demonstrated strong performance in predicting the source of Reddit posts.
 
 *citation:* Throughout my notebooks, I used Grammarly to help improve my technical writing.
