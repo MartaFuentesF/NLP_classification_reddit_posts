@@ -37,6 +37,11 @@ Two classification models were developed using different techniques. The first m
 | CountVectorizer + MultinomialNB    | 0.719944                           | 0.280056                           | 0.964564                 | 0.979847                       | 0.950704                      | max_df': 0.95, 'max_features': 5000, 'min_df': 4, 'ngram_range': (1, 1) |
 | TfidVectorizer + LinearRegression | 0.719944                           | 0.280056                           | 0.934669                 | 0.964559                       | 0.947887                      | 'max_df': 0.95, 'max_features': 2000, 'min_df': 4, 'ngram_range': (1, 1) |
 
+![Confusion Matrix for CountVectorizer + MultinomialNB](https://git.generalassemb.ly/martafuentes/project-3/blob/master/Images/conf_matrix_cvec_mnnb.png?raw=true)
+
+![Confusion Matrix for TfidVectorizer + LogisticRegression]
+
+
 
 | Metric          | CountVectorizer + MultinomialNB | TfidVectorizer + LogisticRegression |
 |-----------------|---------------------------------|-------------------------------------|
@@ -50,8 +55,24 @@ Comparison and Conclusion
 Both models performed well, with minor differences in specific metrics. The F1 scores were nearly identical, indicating high precision and recall. Additionally, both models achieved high accuracy scores, suggesting their effectiveness in classifying text data.
 ![ROC and AUC for CVectorizer + MultinomialNB Model](https://git.generalassemb.ly/martafuentes/project-3/blob/master/Images/roc_auc_cvec_lr.png?raw=true)
 
-![Roc and AUC for C
+![Roc and AUC for TfidVectorizer + LogisticRegression Model](https://git.generalassemb.ly/martafuentes/project-3/blob/master/Images/roc_auc_tvec_lr.png?raw=true)
+
 The AUC for the ROC curve was 0.99 for both models, indicating their ability to distinguish posts from the target source.
+
+In addition to making predictions in a classification scenario, Logistic Regression models can give us inferential insights by using the coefficients associated with the best model. In this case, positive coefficients suggest words associated with one class, while negative coefficients suggest words associated with the other class. Below are the words and coefficients for the most influential words in determining if a post came from AskLawyers.
+| Coefficient | Word     |
+|-------------|----------|
+| -2.248      | court    |
+| -2.042      | legal    |
+| -1.862      | lawyer   |
+| -1.796      | Is       |
+| -1.750      | case     |
+| -1.518      | Can      |
+| -1.478      | property |
+| -1.438      | police   |
+| -1.351      | any      |
+| -1.323      | What     |
+
 
 In conclusion, whether using CountVectorizer with MultinomialNB or TfidfVectorizer with LogisticRegression, the models demonstrated strong performance in predicting the source of Reddit posts.
 
