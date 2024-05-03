@@ -42,10 +42,10 @@ Two classification models were developed using different techniques. The first m
 
 
 
-| Model                              | Baseline Accuracy (Source 1: AmItheAssole) | Baseline Accuracy (Source 0: AskLawyers) | Best Accuracy Score (CV) | Best Accuracy Score (Training) | Best Accuracy Score (Testing) | Best Parameters Found                             |
-|------------------------------------|------------------------------------|------------------------------------|--------------------------|--------------------------------|-------------------------------|--------------------------------------------------|
-| CountVectorizer + MultinomialNB    | 0.719944                           | 0.280056                           | 0.964564                 | 0.979847                       | 0.950704                      | max_df: 0.95, max_features: 5000, min_df: 4, 'ngram_range': (1, 1) |
-| TfidVectorizer + LinearRegression | 0.719944                           | 0.280056                           | 0.934669                 | 0.964559                       | 0.947887                      | max_df: 0.95, max_features: 2000, min_df: 4, 'ngram_range': (1, 1) |
+| Model                              | Baseline Accuracy (Source 1: AmItheAssole) | Best Accuracy Score (CV) | Best Accuracy Score (Training) | Best Accuracy Score (Testing) | Best Parameters Found                             |
+|------------------------------------|------------------------------------|--------------------------|--------------------------------|-------------------------------|--------------------------------------------------|
+| CountVectorizer + MultinomialNB    | 0.719944                           | 0.964564                 | 0.979847                       | 0.950704                      | max_df: 0.95, max_features: 5000, min_df: 4, ngram_range: (1, 1) |
+| TfidVectorizer + LinearRegression | 0.719944                           | 0.934669                 | 0.964559                       | 0.947887                      | max_df: 0.95, max_features: 2000, min_df: 4, ngram_range: (1, 1) |
 
 
 ### Confusion Matrix for CountVectorizer + MultinomialNB
